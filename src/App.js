@@ -1,10 +1,15 @@
-import Main from './components/Main';
+import React, {useState} from 'react';
+import Doc from './components/Doc';
 import './App.css';
 
 function App() {
+  const handleDocumentUpload = () => {
+    console.log("CV Uploaded")
+  }
+  
   return (
     <div className="App">
-      <Main/>
+      <Doc handleUpload={handleDocumentUpload}/>
       
     </div>
   );
