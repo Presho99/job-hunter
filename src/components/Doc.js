@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash} from "@fortawesome/free-solid-svg-icons";
 
 function Doc({handleUpload}) {
   const [document, setDocument] = useState(null);
@@ -18,8 +20,17 @@ function Doc({handleUpload}) {
     }
   }
 
+  const handleDeleteClick = () => {
+    setDocument(null)
+  }
+
   return <div className="doc">
     <input type="file"  onChange={handleFileChange}/>
+    {document && (
+      <div>
+        <FontAwesomeIcon icon={faTrash} onClick={handleDeleteClick}/>
+      </div>
+    )}
     <button onClick={handleUploadClick}>Upload Document</button>
   </div>;
 }
