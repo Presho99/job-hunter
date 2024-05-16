@@ -32,6 +32,10 @@ border-radius: 20px;
   height: 100%;
   width: 100%;
   grid-column: 1 / 2;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .middle{

@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {GoogleGenerativeAI} from '@google/generative-ai'
+import '../components/Keywords.css'
 
 function Keywords({jobDescription}) {
   const genAI = new GoogleGenerativeAI('AIzaSyD94CdKXLoxcR_u-hb7Y1TR9cHHQ2aMT1c')
@@ -20,7 +21,7 @@ function Keywords({jobDescription}) {
   async function generateKeywords(){
     setLoading(true)
     const model = genAI.getGenerativeModel({model: "gemini-pro"})
-    const prompt = `Generate keywords from the job description: ${jobDescription}`
+    const prompt = `Generate only the most important keywords from the job description: ${jobDescription}`
     const result = await model.generateContent(prompt)
     const response = await result.response
     const text = response.text()
@@ -35,22 +36,26 @@ function Keywords({jobDescription}) {
   }
 
   return (
-    <div>
-      <h2>Keywords</h2>
+    <div className='keywords'>
+      <h2 className='key-heading'>Keywords</h2>
       {hasData ? (
         loading ? (
           <p>Loading...</p>
         ) : (
-          <ul>
+          <div className='key-tv'>
+             <ul className=''>
             {keywords.map((keyword, index) => (
-              <li key={index}>{keyword}</li>
+              <li key={index} className="key-tabs">{keyword}</li>
             ))}
           </ul>
+          </div>
+         
         )
       ): (
-        <p>No data</p>
+       
+        <p>Keywords</p>
       )}
-      <button onClick={generateKeywords}>Generate Keywords</button>
+    
     </div>
   )
 }
