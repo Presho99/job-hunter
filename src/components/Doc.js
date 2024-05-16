@@ -3,29 +3,32 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash} from "@fortawesome/free-solid-svg-icons";
 
 function Doc({handleUpload}) {
-  const [document, setDocument] = useState(null);
+  const [document, setDocument] = useState("");
 
   const handleFileChange = (e) => {
-    const file = e.target.files[0]
-    setDocument(file)
+    setDocument(e.target.value)
   }
 
   const handleUploadClick = () => {
-    if(document){
+    if(document.trim()){
       handleUpload(document)
       // Clear the selected document after upload
-      setDocument(null) 
+      setDocument("") 
     }else {
-      console.error("No document selected.")
+      console.error("No content provided.")
     }
   }
 
   const handleDeleteClick = () => {
-    setDocument(null)
+    setDocument("")
   }
 
   return <div className="doc">
-    <input type="file"  onChange={handleFileChange}/>
+  <textarea
+  value={document}
+  onChange={handleFileChange}
+  placeholder="Paste your cv here"
+  />
     {document && (
       <div>
         <FontAwesomeIcon icon={faTrash} onClick={handleDeleteClick}/>
