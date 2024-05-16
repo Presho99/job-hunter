@@ -3,6 +3,7 @@ import Job from './components/Job';
 import Keywords from './components/Keywords';
 import Doc from './components/Doc';
 import Score from './components/Score'
+import Correction from './components/Correction';
 import './App.css';
 
 function App() {
@@ -25,7 +26,11 @@ const [jobDescription, setJobDescription] = useState('')
       <Job onSubmit={handleJobSubmit}/>
       <Keywords jobDescription={jobDescription}/>
       {uploadedDoc && jobDescription && (
-        <Score jobDescription={jobDescription} uploadedDoc={uploadedDoc}/>
+        <div>
+          <Score jobDescription={jobDescription} uploadedDoc={uploadedDoc}/>
+        <Correction jobDescription={jobDescription} uploadedDoc={uploadedDoc}/>
+        </div>
+        
       )}
       
       
