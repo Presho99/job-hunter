@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import '../components/Doc.css'
 import { faTrash} from "@fortawesome/free-solid-svg-icons";
 
 function Doc({handleUpload}) {
@@ -25,6 +26,7 @@ function Doc({handleUpload}) {
 
   return <div className="doc">
   <textarea
+  className="doc-text"
   value={document}
   onChange={handleFileChange}
   placeholder="Paste your cv here"
@@ -34,7 +36,7 @@ function Doc({handleUpload}) {
         <FontAwesomeIcon icon={faTrash} onClick={handleDeleteClick}/>
       </div>
     )}
-    <button onClick={handleUploadClick}>Upload Document</button>
+    <button onClick={handleUploadClick} className="doc-btn">Upload Document</button>
   </div>;
 }
 

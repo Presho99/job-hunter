@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import '../components/Job.css'
 
 function Job({onSubmit}) {
   const [jd, setJd] = useState('')
@@ -17,15 +18,16 @@ const handleTextareaChange = (e) => {
   }
 
   return (
-   <form onSubmit={handleSubmit}>
+   <div  className="job">
      <textarea
+     className='job-text'
      value={jd}
      onChange={handleTextareaChange}
      placeholder="Enter job description here..."
      
      />
-     <button type='submit' disabled={isDisabled}>Post Job</button>
-   </form>
+     <button onSubmit={handleSubmit} type='submit' disabled={isDisabled} className="job-btn">Post Job</button>
+   </div>
   )
 }
 

@@ -23,7 +23,7 @@
 
 }
 
-.left, .middle, .right{
+.left, .right{
 background-color: #fff;
 border-radius: 20px;
 }
@@ -43,7 +43,9 @@ border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 20px;
 }
 
 .right{

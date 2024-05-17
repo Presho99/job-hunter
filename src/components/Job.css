@@ -1,0 +1,33 @@
+.job{
+    height: 48%;
+    width: 100%;
+    /* background-color: #E1E1E1; */
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.job-text{
+    width: 100%;
+    overflow: scroll;
+    height: 85%;
+    outline: none;
+    padding: 10px;   
+    border-radius: 20px;
+    border: 8px solid #1f1e30;
+    border-radius: 5px;
+}
+
+.job-btn{
+    width: 150px;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    padding: 10px;
+    color: #d8ef75;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #1f1e30;    
+}
