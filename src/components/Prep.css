@@ -1,0 +1,35 @@
+.prep{
+    height: 100%;
+    width: 100%;
+    /* background-color: red; */
+    padding: 10px;
+
+    
+}
+
+.prep-buttons{
+    /* background-color: pink; */
+    width: 100%;
+    height: 7%;
+    display: flex;
+    /* padding: 0 10px; */
+justify-content: space-between;
+align-items: center;
+}
+
+.prep-buttons button{
+    width: 90px;
+    height: 40px;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    padding: 10px;
+    color: #d8ef75;
+    font-weight: bold;
+    border-radius: 5px;   background-color: #1f1e30;
+}
+
+.prep-box{
+    background-color: pink;
+}
+
