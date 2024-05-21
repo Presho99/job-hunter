@@ -26,7 +26,7 @@ const handleTextareaChange = (e) => {
      placeholder="Enter job description here..."
      
      />
-     <button onSubmit={handleSubmit} type='submit' disabled={isDisabled} className="job-btn">Post Job</button>
+     <button onClick={handleSubmit} type='submit' disabled={isDisabled} className="job-btn">Post Job</button>
    </div>
   )
 }
