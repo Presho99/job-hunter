@@ -4,6 +4,8 @@ import Keywords from "./components/Keywords";
 import Doc from "./components/Doc";
 import Score from "./components/Score";
 import Correction from "./components/Correction";
+import Prep from "./components/Prep";
+
 import "./App.css";
 
 function App() {
@@ -27,11 +29,17 @@ function App() {
           <Keywords jobDescription={jobDescription} />
         </div>
         <div className="middle">
-          <Doc handleUpload={handleDocumentUpload} />
-          <Job onSubmit={handleJobSubmit} />
+          {!uploadedDoc ? (
+             <Doc handleUpload={handleDocumentUpload} />
+          ) : (
+            <Job onSubmit={handleJobSubmit} />
+          )}
+         
+         <Correction jobDescription={jobDescription} uploadedDoc={uploadedDoc} />
+         
         </div>
         <div className="right">
-        <Correction jobDescription={jobDescription} uploadedDoc={uploadedDoc} />
+            <Prep jobDescription={jobDescription}/>
         </div>
 
      
