@@ -21,7 +21,7 @@ function Keywords({jobDescription}) {
   async function generateKeywords(){
     setLoading(true)
     const model = genAI.getGenerativeModel({model: "gemini-pro"})
-    const prompt = `Generate only the most important keywords from the job description: ${jobDescription}`
+    const prompt = `Generate only the most important keywords from the job description and not the entire sentence: ${jobDescription}`
     const result = await model.generateContent(prompt)
     const response = await result.response
     const text = response.text()
@@ -53,7 +53,7 @@ function Keywords({jobDescription}) {
         )
       ): (
        
-        <p>Keywords</p>
+        <p className='key-below'>Keywords will appear here</p>
       )}
     
     </div>
