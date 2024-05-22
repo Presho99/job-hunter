@@ -3,7 +3,7 @@ import '../components/Score.css'
 import {GoogleGenerativeAI} from "@google/generative-ai"
 
 function Score({jobDescription, uploadedDoc}) {
-  const genAI = new GoogleGenerativeAI('AIzaSyDdNJ_lp36HWLWayhn-nGENZ8fYosU8EeA');
+  const genAI = new GoogleGenerativeAI(process.env.REACT_APP_GOOGLE_API_KEY);
   const [score, setScore] = useState(0)
   const [displayedScore, setDisplayedScore] = useState(0)
   const [loading, setLoading] = useState(false)

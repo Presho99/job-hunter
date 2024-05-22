@@ -3,7 +3,7 @@ import {GoogleGenerativeAI} from '@google/generative-ai'
 import '../components/Keywords.css'
 
 function Keywords({jobDescription}) {
-  const genAI = new GoogleGenerativeAI('AIzaSyD94CdKXLoxcR_u-hb7Y1TR9cHHQ2aMT1c')
+  const genAI = new GoogleGenerativeAI(process.env.REACT_APP_GOOGLE_API_KEY);
   const [keywords, setKeywords] = useState([])
   const [loading, setLoading] = useState(false)
   const [hasData, setHasData] = useState(false)

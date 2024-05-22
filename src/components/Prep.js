@@ -3,12 +3,14 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import '../components/Prep.css';
 
 function Prep({ uploadedDoc, jobDescription }) {
-  const genAI = new GoogleGenerativeAI("AIzaSyD94CdKXLoxcR_u-hb7Y1TR9cHHQ2aMT1c");
+  const genAI = new GoogleGenerativeAI(process.env.REACT_APP_GOOGLE_API_KEY);
+
   const [loading, setLoading] = useState(false);
   const [dsaQuest, setDsaQuest] = useState(null);
   const [techQuest, setTechQuest] = useState(null);
   const [behaviorQuest, setBehaviorQuest] = useState(null);
   const [currentQuest, setCurrentQuest] = useState(null);
+  const [questionsLoaded, setQuestionsLoaded] = useState(false); // New state to track if questions are loaded
 
   const generateQuestions = async (type) => {
     if (!jobDescription) {
@@ -17,6 +19,7 @@ function Prep({ uploadedDoc, jobDescription }) {
     }
 
     setLoading(true);
+    setQuestionsLoaded(false); // Reset questions loaded state
     const model = genAI.getGenerativeModel({ model: "gemini-pro" });
     let prompt;
 
@@ -57,7 +60,7 @@ function Prep({ uploadedDoc, jobDescription }) {
         default:
           break;
       }
-
+      setQuestionsLoaded(true); // Set questions loaded state to true
     } catch (error) {
       console.error("Error generating content:", error);
     } finally {
@@ -99,10 +102,11 @@ function Prep({ uploadedDoc, jobDescription }) {
             </ul>
           ) : null
         )}
-        <div className="prep-below">
-        <p>Practice questions will appear here</p>
-        </div>
-       
+        {!questionsLoaded && !currentQuest && (
+          <div className="prep-below">
+            <p>Practice questions will appear here</p>
+          </div>
+        )}
       </div>
 
       <div className="prep-footer">
