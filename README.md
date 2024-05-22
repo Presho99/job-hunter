@@ -15,4 +15,8 @@ React, CSS, and the Gemini AI API
 ### `npm start`
 Runs the app in the development mode.
 
+### Demo
+![job](https://github.com/Presho99/job-hunter/assets/73560150/33774bb5-8c95-408d-b3e3-cdb348f98581)
+
+
 
